@@ -1,0 +1,32 @@
+# Copyright (c) 2026 Matt Drake (o il tuo nome)
+# SPDX-License-Identifier: MIT
+
+if BOARD_DEMETRA_V2_LEFT || BOARD_DEMETRA_V2_RIGHT
+
+config BOARD
+    default "demetra_v2"
+
+# Abilita il driver USB specifico per nRF52 se lo stack USB è attivo
+if USB_DEVICE_STACK
+config USB_NRFX
+    default y
+
+config USB_DEVICE_VID
+    default 0x1D50
+
+config USB_DEVICE_PID
+    default 0x615E
+endif # USB_DEVICE_STACK
+
+# Forza il controller Bluetooth nativo
+config BT_CTLR
+    default y if ZMK_BLE
+
+# Ruolo master solo per il lato sinistro
+if BOARD_DEMETRA_V2_LEFT
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+endif
+
+endif # BOARD_DEMETRA_V2_LEFT || BOARD_DEMETRA_V2_RIGHT
+

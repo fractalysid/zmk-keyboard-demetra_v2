@@ -1,0 +1,35 @@
+CONFIG_SOC_SERIES_NRF52X=y
+CONFIG_SOC_NRF52840_QIAA=y
+CONFIG_BOARD_DEMETRA_V2_LEFT=y
+
+# Linka l'app all'offset di code_partition (0x26000) richiesto dal bootloader Adafruit.
+# Senza questo l'app viene linkata a 0x0 (FLASH_LOAD_OFFSET=0) e non si avvia.
+CONFIG_USE_DT_CODE_PARTITION=y
+
+# Igiene di build
+CONFIG_ARM_MPU=y
+CONFIG_PINCTRL=y
+CONFIG_GPIO=y
+
+# Storage per il bonding Bluetooth (i pairing persistono al reboot)
+CONFIG_MPU_ALLOW_FLASH_WRITE=y
+CONFIG_NVS=y
+CONFIG_SETTINGS_NVS=y
+CONFIG_FLASH=y
+CONFIG_FLASH_PAGE_LAYOUT=y
+CONFIG_FLASH_MAP=y
+
+# Alimentazione: DCDC OFF per TEST (verifichiamo se senza induttore il BMD-340 va in brownout)
+CONFIG_BOARD_ENABLE_DCDC=n
+
+# Oscillatore
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_500PPM=y
+
+# Architettura ZMK
+CONFIG_ZMK_SPLIT=y
+CONFIG_USB_DEVICE_STACK=y
+
+# GENERAZIONE UF2 (Questa è la variabile nativa di Zephyr che produce il file)
+CONFIG_BUILD_OUTPUT_UF2=y
+
