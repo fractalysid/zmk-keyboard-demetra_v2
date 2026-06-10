@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) 2026 Mattia Buscema
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "demetra_v2.dtsi"
+
+/ {
+    model = "Demetra v2 Left";
+    compatible = "fractalysid,demetra_v2_left";
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+
+        input-gpios
+            = <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 0:  K11
+            , <&gpio0 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 1:  K12
+            , <&gpio0 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 2:  K13
+            , <&gpio0 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 3:  K14
+            , <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 4:  K15
+            , <&gpio0 3  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 5:  K21
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 6:  K22
+            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 7:  K23
+            , <&gpio0 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 8:  K24
+            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 9:  K25
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 10: K31
+            , <&gpio0 5  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 11: K32
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 12: K33
+            , <&gpio0 7  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 13: K34
+            , <&gpio0 21 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 14: K35
+            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 15: KT1
+            , <&gpio1 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 16: KT2
+            ;
+    };
+};

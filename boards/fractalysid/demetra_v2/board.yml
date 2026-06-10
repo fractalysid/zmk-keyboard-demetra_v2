@@ -1,0 +1,9 @@
+boards:
+  - name: demetra_v2_left
+    vendor: fractalysid
+    socs:
+      - name: nrf52840
+  - name: demetra_v2_right
+    vendor: fractalysid
+    socs:
+      - name: nrf52840

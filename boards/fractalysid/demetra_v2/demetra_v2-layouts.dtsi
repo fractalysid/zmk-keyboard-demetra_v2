@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2026 Mattia Buscema
+ * SPDX-License-Identifier: MIT
+ *
+ * Layout fisico Demetra v2 (34 tasti, split 3x5+2).
+ * L'ordine dei tasti segue la map del matrix transform:
+ * riga per riga left→right, poi i 4 thumb (L poi R).
+ */
+
+#include <physical_layouts.dtsi>
+
+/ {
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default";
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0   50       0     0     0>
+            , <&key_physical_attrs 100 100  100   25       0     0     0>
+            , <&key_physical_attrs 100 100  200    0       0     0     0>
+            , <&key_physical_attrs 100 100  300   25       0     0     0>
+            , <&key_physical_attrs 100 100  400   38       0     0     0>
+            , <&key_physical_attrs 100 100  700   38       0     0     0>
+            , <&key_physical_attrs 100 100  800   25       0     0     0>
+            , <&key_physical_attrs 100 100  900    0       0     0     0>
+            , <&key_physical_attrs 100 100 1000   25       0     0     0>
+            , <&key_physical_attrs 100 100 1100   50       0     0     0>
+            , <&key_physical_attrs 100 100    0  150       0     0     0>
+            , <&key_physical_attrs 100 100  100  125       0     0     0>
+            , <&key_physical_attrs 100 100  200  100       0     0     0>
+            , <&key_physical_attrs 100 100  300  125       0     0     0>
+            , <&key_physical_attrs 100 100  400  138       0     0     0>
+            , <&key_physical_attrs 100 100  700  138       0     0     0>
+            , <&key_physical_attrs 100 100  800  125       0     0     0>
+            , <&key_physical_attrs 100 100  900  100       0     0     0>
+            , <&key_physical_attrs 100 100 1000  125       0     0     0>
+            , <&key_physical_attrs 100 100 1100  150       0     0     0>
+            , <&key_physical_attrs 100 100    0  250       0     0     0>
+            , <&key_physical_attrs 100 100  100  225       0     0     0>
+            , <&key_physical_attrs 100 100  200  200       0     0     0>
+            , <&key_physical_attrs 100 100  300  225       0     0     0>
+            , <&key_physical_attrs 100 100  400  238       0     0     0>
+            , <&key_physical_attrs 100 100  700  238       0     0     0>
+            , <&key_physical_attrs 100 100  800  225       0     0     0>
+            , <&key_physical_attrs 100 100  900  200       0     0     0>
+            , <&key_physical_attrs 100 100 1000  225       0     0     0>
+            , <&key_physical_attrs 100 100 1100  250       0     0     0>
+            , <&key_physical_attrs 100 100  300  350       0     0     0>
+            , <&key_physical_attrs 100 100  425  363       0     0     0>
+            , <&key_physical_attrs 100 100  675  363       0     0     0>
+            , <&key_physical_attrs 100 100  800  350       0     0     0>
+            ;
+    };
+};

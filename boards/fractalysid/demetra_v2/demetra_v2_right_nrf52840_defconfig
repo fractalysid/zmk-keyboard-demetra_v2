@@ -1,0 +1,29 @@
+# Copyright (c) 2026 Mattia Buscema
+# SPDX-License-Identifier: MIT
+# NOTA: nome con qualifier (_nrf52840_) per non farsi trovare dal glob
+# HWMv1 di Zephyr 3.5, che cerca <board>_defconfig esatto in boards/*/*.
+
+CONFIG_ZMK_KEYBOARD_NAME="Demetra v2"
+
+# La metà destra è periferica: niente USB HID, solo BLE verso la centrale
+CONFIG_ZMK_BLE=y
+
+# Igiene di build
+CONFIG_ARM_MPU=y
+CONFIG_GPIO=y
+
+# Linka l'app all'offset di code_partition (0x26000) richiesto dal bootloader Adafruit
+CONFIG_USE_DT_CODE_PARTITION=y
+CONFIG_BUILD_OUTPUT_UF2=y
+
+# Storage per il bonding Bluetooth
+CONFIG_MPU_ALLOW_FLASH_WRITE=y
+CONFIG_NVS=y
+CONFIG_SETTINGS_NVS=y
+CONFIG_FLASH=y
+CONFIG_FLASH_PAGE_LAYOUT=y
+CONFIG_FLASH_MAP=y
+
+# Oscillatore: RC interno (il BMD-340 non ha LFXO 32kHz)
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
+CONFIG_CLOCK_CONTROL_NRF_K32SRC_500PPM=y

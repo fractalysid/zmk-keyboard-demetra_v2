@@ -1,0 +1,32 @@
+# Copyright (c) 2026 Mattia Buscema
+# SPDX-License-Identifier: MIT
+
+if BOARD_DEMETRA_V2_LEFT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # BOARD_DEMETRA_V2_LEFT
+
+if BOARD_DEMETRA_V2_LEFT || BOARD_DEMETRA_V2_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config BT_CTLR
+    default BT
+
+config PINCTRL
+    default y
+
+if USB
+
+config USB_NRFX
+    default y
+
+config USB_DEVICE_STACK
+    default y
+
+endif # USB
+
+endif # BOARD_DEMETRA_V2_LEFT || BOARD_DEMETRA_V2_RIGHT

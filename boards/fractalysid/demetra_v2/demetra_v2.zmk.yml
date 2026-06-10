@@ -1,0 +1,13 @@
+file_format: "1"
+id: demetra_v2
+name: Demetra v2
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+  - ble
+siblings:
+  - demetra_v2_left
+  - demetra_v2_right

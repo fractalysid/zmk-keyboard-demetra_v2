@@ -1,15 +1,18 @@
-/dts-v1/;
-#include "demetra_v2_common.dtsi"
+/*
+ * Copyright (c) 2026 Mattia Buscema
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "demetra_v2.dtsi"
 
 / {
     model = "Demetra v2 Right";
-    compatible = "custom,demetra_v2_right";
+    compatible = "fractalysid,demetra_v2_right";
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-direct";
-        label = "KSCAN";
+        wakeup-source;
 
-        // Mappatura rigorosa dei 17 pin fisici verso GND (Lato Destro)
         input-gpios
             = <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 17: K11
             , <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 18: K12
@@ -30,4 +33,10 @@
             , <&gpio0 7  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 33: KT2
             ;
     };
+};
+
+/* La metà destra riporta le posizioni kscan 0-16: l'offset le mappa
+   sulle colonne 17-33 del transform condiviso. */
+&default_transform {
+    col-offset = <17>;
 };
