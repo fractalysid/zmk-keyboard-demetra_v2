@@ -8,5 +8,26 @@ config BOARD_ENABLE_DCDC
     default y
     select SOC_DCDC_NRF52X
 	select SOC_DCDC_NRF52X_HV
+
+config DEMETRA_V2_BOOT_MARKER
+    bool "Boot marker: traccia il boot col LED su P0.15 (bring-up)"
+    default n
+    help
+      Usa il LED blu (P0.15, attivo basso) come tracer del boot senza debugger:
+      lampo lungo 400ms = init EARLY dell'app eseguita (handoff bootloader OK);
+      2 lampi brevi = kernel su (POST_KERNEL raggiunto);
+      LED fisso acceso = init completata fino a livello APPLICATION.
+      Se il LED resta acceso DURANTE i lampi brevi: k_busy_wait bloccata
+      → timer di sistema/LFCLK morto. Disattivare a bring-up concluso.
+
+config DEMETRA_V2_STORAGE_NUKE
+    bool "Build one-shot: cancella la storage partition (NVS) e si ferma"
+    default n
+    help
+      Firmware usa-e-getta per bring-up: a inizio APPLICATION cancella la
+      partizione storage (0xEC000, 32KB) e lampeggia rapido per sempre.
+      Serve quando la flash alta contiene residui di staging DFU che
+      corrompono gli NVS. Dopo l'uso riflashare il firmware normale.
+
 endif
 
