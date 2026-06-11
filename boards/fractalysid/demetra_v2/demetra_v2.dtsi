@@ -39,8 +39,17 @@
     };
 };
 
-/* Regolatori lasciati in LDO (default): il DCDC del BMD-340 si abilita qui
-   con regulator-initial-mode su &reg0/&reg1 — non via Kconfig come in v0.3. */
+/* DCDC su entrambi gli stadi (induttori integrati nel BMD-340, modulo in
+   High Voltage mode). REG0 (VDDH->VDD): basta status okay — il binding HV non
+   ha la proprietà mode, soc.c attiva DCDCEN0 se il nodo è abilitato.
+   REG1 (VDD->core): via regulator-initial-mode, come glove80. */
+&reg0 {
+    status = "okay";
+};
+
+&reg1 {
+    regulator-initial-mode = <NRF5X_REG_MODE_DCDC>;
+};
 
 &gpio0 { status = "okay"; };
 &gpio1 { status = "okay"; };

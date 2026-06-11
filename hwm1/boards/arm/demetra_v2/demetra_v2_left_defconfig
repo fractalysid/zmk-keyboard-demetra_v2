@@ -19,8 +19,8 @@ CONFIG_FLASH=y
 CONFIG_FLASH_PAGE_LAYOUT=y
 CONFIG_FLASH_MAP=y
 
-# Alimentazione: DCDC OFF per TEST (verifichiamo se senza induttore il BMD-340 va in brownout)
-CONFIG_BOARD_ENABLE_DCDC=n
+# Alimentazione: DCDC attivo (default y dal Kconfig della board; induttori
+# integrati nel BMD-340). Era =n solo per i test di bring-up.
 
 # Oscillatore
 CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
